@@ -47,6 +47,7 @@ public class Poi implements Serializable {
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "FK_POI_CATEGORY"))
     private Category category;
 
+    @Builder.Default
     @ManyToMany
     private List<Route> routes = new ArrayList<>();
 
@@ -54,12 +55,9 @@ public class Poi implements Serializable {
     private LocalDate date;
 
     public void addRoute(Route r){
-        if (this.getRoutes() == null)
-            this.setRoutes(new ArrayList<>());
         this.getRoutes().add(r);
-        if( r.getSteps() == null)
-            r.setSteps(new ArrayList<>());
         r.getSteps().add(this);
+
     }
 
     public void removeRoute(Route r){
