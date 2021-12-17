@@ -2,9 +2,8 @@ package com.salesianostriana.trianatourist.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +13,23 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Route {
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "grafo-route-poi",
+                attributeNodes = {
+                        @NamedAttributeNode("steps")
+                }
+        )
+})
+public class Route implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
+
+    @Builder.Default
+    @ManyToMany
     private List<Poi> steps = new ArrayList();
 }

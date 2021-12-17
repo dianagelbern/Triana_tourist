@@ -8,4 +8,5 @@ import lombok.*;
 @Getter
 @Setter
 public class CreateCategoryDto {
+    private String name;
 }

@@ -4,7 +4,7 @@ import com.salesianostriana.trianatourist.dto.GetCategoryDto;
 
 public class ListEntityNotFoundException extends EntityNotFoundException{
 
-    public ListEntityNotFoundException(Class<GetCategoryDto> message) {
-        super(message);
+    public ListEntityNotFoundException(Class clazz) {
+        super(String.format("No se pueden encontrar elementos del tipo %s ", clazz.getName()));
     }
 }

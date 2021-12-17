@@ -1,6 +1,7 @@
 package com.salesianostriana.trianatourist.service;
 
 import com.salesianostriana.trianatourist.dto.CategoryDtoConverter;
+import com.salesianostriana.trianatourist.dto.CreateCategoryDto;
 import com.salesianostriana.trianatourist.dto.GetCategoryDto;
 import com.salesianostriana.trianatourist.error.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.trianatourist.error.excepciones.SingleEntityNotFoundException;
@@ -36,17 +37,14 @@ public class CategoryService extends BaseService<Category, Long, CategoryReposit
             return repository.findById(id);
         }
     }
-/*
-    @Override
-    public Category save(Category category, CategoryDtoConverter dto) {
-        return repository.save((Category) dto.)
-    }
-*/
 
-    //Queda esta también
-    @Override
-    public Category edit(Category category) {
-        return super.edit(category);
+    public Category save(CreateCategoryDto create, CategoryDtoConverter converter) {
+        return repository.save((Category) converter.createCategoryDtoToCategory(create));
+    }
+
+    public Category edit(CreateCategoryDto create, Category c) {
+        c.setName(create.getName());
+        return repository.save(c);
     }
 
     @Override
