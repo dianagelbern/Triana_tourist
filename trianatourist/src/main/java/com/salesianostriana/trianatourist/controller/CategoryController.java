@@ -1,7 +1,7 @@
 package com.salesianostriana.trianatourist.controller;
 
-import com.salesianostriana.trianatourist.dto.CategoryDtoConverter;
-import com.salesianostriana.trianatourist.dto.CreateCategoryDto;
+import com.salesianostriana.trianatourist.dto.category.CategoryDtoConverter;
+import com.salesianostriana.trianatourist.dto.category.CreateCategoryDto;
 import com.salesianostriana.trianatourist.model.Category;
 import com.salesianostriana.trianatourist.service.CategoryService;
 import lombok.RequiredArgsConstructor;

@@ -24,7 +24,7 @@ import java.util.List;
 public class Route implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -32,4 +32,15 @@ public class Route implements Serializable {
     @Builder.Default
     @ManyToMany
     private List<Poi> steps = new ArrayList();
+
+    public void addSteps(Poi p){
+        this.getSteps().add(p);
+        p.getRoutes().add(this);
+
+    }
+
+    public void removeSteps(Poi p){
+        p.getRoutes().remove(this);
+        this.getSteps().remove(p);
+    }
 }

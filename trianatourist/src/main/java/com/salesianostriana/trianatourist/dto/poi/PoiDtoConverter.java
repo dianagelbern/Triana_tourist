@@ -1,4 +1,4 @@
-package com.salesianostriana.trianatourist.dto;
+package com.salesianostriana.trianatourist.dto.poi;
 
 import com.salesianostriana.trianatourist.model.Poi;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class PoiDtoConverter {
                 .coverPhoto(p.getCoverPhoto())
                 .photo2(p.getPhoto2())
                 .photo3(p.getPhoto3())
-                .category(p.getCategory())
+                .categoryName(p.getCategory().getName())
                 .routes(p.getRoutes())
                 .date(p.getDate()).build();
     }

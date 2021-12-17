@@ -1,4 +1,4 @@
-package com.salesianostriana.trianatourist.dto;
+package com.salesianostriana.trianatourist.dto.route;
 
 import com.salesianostriana.trianatourist.model.Route;
 import lombok.RequiredArgsConstructor;

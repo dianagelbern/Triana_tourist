@@ -1,7 +1,8 @@
 package com.salesianostriana.trianatourist.controller;
 
-import com.salesianostriana.trianatourist.dto.CreatePoiDto;
-import com.salesianostriana.trianatourist.dto.PoiDtoConverter;
+import com.salesianostriana.trianatourist.dto.poi.CreatePoiDto;
+import com.salesianostriana.trianatourist.dto.poi.GetPoiDto;
+import com.salesianostriana.trianatourist.dto.poi.PoiDtoConverter;
 import com.salesianostriana.trianatourist.model.Poi;
 import com.salesianostriana.trianatourist.service.PoiService;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +31,10 @@ public class PoiController {
     }
 
     @PostMapping("/")
-    public Poi create(@Valid @RequestBody CreatePoiDto dto){
-        return service.save(dto, converter);
+    public GetPoiDto create(@Valid @RequestBody CreatePoiDto dto){
+        Poi p = service.save(dto, converter);
+
+        return  converter.poiToGetPoiDtoConverter(p);
     }
 
     @PutMapping("/{id}")

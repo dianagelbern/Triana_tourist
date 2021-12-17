@@ -1,12 +1,14 @@
 package com.salesianostriana.trianatourist.service;
 
-import com.salesianostriana.trianatourist.dto.*;
+import com.salesianostriana.trianatourist.dto.route.CreateRouteDto;
+import com.salesianostriana.trianatourist.dto.route.GetRouteDto;
+import com.salesianostriana.trianatourist.dto.route.RouteDtoConverter;
 import com.salesianostriana.trianatourist.error.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.trianatourist.error.excepciones.SingleEntityNotFoundException;
-import com.salesianostriana.trianatourist.model.Poi;
 import com.salesianostriana.trianatourist.model.Route;
 import com.salesianostriana.trianatourist.repository.RouteRepository;
 import com.salesianostriana.trianatourist.service.base.BaseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.Optional;
 @Service
 public class RouteService extends BaseService<Route, Long, RouteRepository> {
 
+    @Autowired
     private RouteRepository repository;
 
     @Override
@@ -50,5 +53,10 @@ public class RouteService extends BaseService<Route, Long, RouteRepository> {
     @Override
     public void delete(Route r) {
         super.delete(r);
+    }
+
+    @Override
+    public List<Route> saveAll(List<Route> list) {
+        return super.saveAll(list);
     }
 }

@@ -1,6 +1,5 @@
-package com.salesianostriana.trianatourist.dto;
+package com.salesianostriana.trianatourist.dto.poi;
 
-import com.salesianostriana.trianatourist.model.Category;
 import com.salesianostriana.trianatourist.model.Route;
 import lombok.*;
 
@@ -16,7 +15,7 @@ public class GetPoiDto {
 
     private String name, location, descripcion, coverPhoto, photo2, photo3;
 
-    private Category category;
+    private String categoryName;
 
     private List<Route> routes;
 

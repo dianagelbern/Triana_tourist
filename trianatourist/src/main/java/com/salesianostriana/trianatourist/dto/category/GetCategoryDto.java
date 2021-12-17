@@ -1,4 +1,4 @@
-package com.salesianostriana.trianatourist.dto;
+package com.salesianostriana.trianatourist.dto.category;
 
 import lombok.*;
 

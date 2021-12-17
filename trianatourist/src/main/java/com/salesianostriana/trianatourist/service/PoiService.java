@@ -1,12 +1,14 @@
 package com.salesianostriana.trianatourist.service;
 
-import com.salesianostriana.trianatourist.dto.*;
+import com.salesianostriana.trianatourist.dto.poi.CreatePoiDto;
+import com.salesianostriana.trianatourist.dto.poi.GetPoiDto;
+import com.salesianostriana.trianatourist.dto.poi.PoiDtoConverter;
 import com.salesianostriana.trianatourist.error.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.trianatourist.error.excepciones.SingleEntityNotFoundException;
-import com.salesianostriana.trianatourist.model.Category;
 import com.salesianostriana.trianatourist.model.Poi;
 import com.salesianostriana.trianatourist.repository.PoiRepository;
 import com.salesianostriana.trianatourist.service.base.BaseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.Optional;
 @Service
 public class PoiService extends BaseService<Poi, Long, PoiRepository> {
 
+    @Autowired
     private PoiRepository repository;
 
     @Override
@@ -38,7 +41,11 @@ public class PoiService extends BaseService<Poi, Long, PoiRepository> {
     }
 
     public Poi save(CreatePoiDto create, PoiDtoConverter converter) {
-        return repository.save((Poi) converter.createPoiDtoToPoi(create));
+        //TODO : SETEAR CATEGORIA EN POI
+        Poi p = converter.createPoiDtoToPoi(create);
+
+        p.setCategory(create.getCategory());
+        return repository.save(p);
     }
 
     public Poi edit(CreatePoiDto create, Poi p) {
@@ -51,4 +58,8 @@ public class PoiService extends BaseService<Poi, Long, PoiRepository> {
         super.delete(p);
     }
 
+    @Override
+    public List<Poi> saveAll(List<Poi> list) {
+        return super.saveAll(list);
+    }
 }

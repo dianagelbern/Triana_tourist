@@ -31,6 +31,9 @@ public abstract class BaseService <T, ID, R extends JpaRepository<T, ID>>{
         repositorio.delete(t);
     }
 
+    public List<T> saveAll(List<T> list){
+        return repositorio.saveAll(list);
+    }
 
 
 }
