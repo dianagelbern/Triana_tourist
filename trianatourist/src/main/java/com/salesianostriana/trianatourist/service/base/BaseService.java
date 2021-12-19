@@ -1,5 +1,6 @@
 package com.salesianostriana.trianatourist.service.base;
 
+import com.salesianostriana.trianatourist.dto.route.GetRouteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 

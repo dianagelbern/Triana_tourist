@@ -32,11 +32,11 @@ public class RouteService extends BaseService<Route, Long, RouteRepository> {
 
     @Override
     public Optional<Route> findById(Long id) {
+        Optional<Route> r = repository.findById(id);
         if(repository.findById(id).isEmpty()){
             throw new SingleEntityNotFoundException(id.toString(), Route.class);
-
         }else {
-            return repository.findById(id);
+            return r;
         }
     }
 
@@ -46,12 +46,11 @@ public class RouteService extends BaseService<Route, Long, RouteRepository> {
 
     public Route edit(CreateRouteDto create, Route r) {
         r.setName(create.getName());
-        r.setSteps(create.getSteps());
         return repository.save(r);
     }
 
-    @Override
     public void delete(Route r) {
+        //r.getSteps().forEach(a -> a.removeRoute(r));
         super.delete(r);
     }
 

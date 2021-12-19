@@ -44,6 +44,7 @@ public class InitData {
                         .location("Triana")
                         .descripcion("Un sitio bastante perron")
                         .date(LocalDate.of(1990, 2, 20))
+                        .category(c1)
                         .coverPhoto("http//unafoto.jpg").build(),
 
                 Poi.builder()

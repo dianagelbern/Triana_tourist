@@ -41,7 +41,9 @@ public class Poi implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name, location, descripcion, coverPhoto, photo2, photo3;
+    private String name, location, coverPhoto, photo2, photo3;
+    @Lob
+    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "FK_POI_CATEGORY"))

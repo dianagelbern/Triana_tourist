@@ -1,5 +1,6 @@
 package com.salesianostriana.trianatourist.dto.route;
 
+import com.salesianostriana.trianatourist.dto.poi.GetPoiDto;
 import com.salesianostriana.trianatourist.model.Poi;
 import lombok.*;
 
@@ -16,5 +17,5 @@ public class GetRouteDto {
 
     private String name;
 
-    private List<Poi> steps;
+    private List<GetPoiDto> steps;
 }

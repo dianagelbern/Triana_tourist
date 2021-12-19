@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import java.util.List;
 
 public interface PoiRepository extends JpaRepository<Poi, Long> {
+    boolean existsByName(String name);
 
-    @EntityGraph("grafo-poi-category-route")
+
+    @EntityGraph("grafo-route-poi")
     List<Poi> findAll();
 }

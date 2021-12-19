@@ -3,6 +3,7 @@ package com.salesianostriana.trianatourist.service;
 import com.salesianostriana.trianatourist.dto.category.CategoryDtoConverter;
 import com.salesianostriana.trianatourist.dto.category.CreateCategoryDto;
 import com.salesianostriana.trianatourist.dto.category.GetCategoryDto;
+import com.salesianostriana.trianatourist.dto.route.GetRouteDto;
 import com.salesianostriana.trianatourist.error.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.trianatourist.error.excepciones.SingleEntityNotFoundException;
 import com.salesianostriana.trianatourist.model.Category;
@@ -19,17 +20,17 @@ public class CategoryService extends BaseService<Category, Long, CategoryReposit
 
     @Autowired
     private CategoryRepository repository;
-
+/*
     @Override
-    public List<Category> findAll() {
-        List<Category> res = super.findAll();
+    public List<GetCategoryDto> findAll() {
+        List<GetCategoryDto> res = super.findAll();
         if (res.isEmpty()){
             throw new ListEntityNotFoundException(GetCategoryDto.class);
         }else {
             return res;
         }
     }
-
+*/
     @Override
     public Optional<Category> findById(Long id) {
         if(repository.findById(id).isEmpty()){
