@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class RouteDtoConverter {
-    public GetRouteDto routeToGetRouteDtoConverter(Route r, PoiDtoConverter converter, CategoryDtoConverter categoryDtoConverter){
+    public GetRouteDto routeToGetRouteDtoConverter(Route r, PoiDtoConverter converter){
         return GetRouteDto.builder()
                 .name(r.getName())
                 .steps(r.getSteps().stream().map(converter::poiToGetPoiDtoConverter).collect(Collectors.toList())).build();

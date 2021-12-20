@@ -5,6 +5,7 @@ import com.salesianostriana.trianatourist.dto.route.GetRouteDto;
 import com.salesianostriana.trianatourist.dto.route.RouteDtoConverter;
 import com.salesianostriana.trianatourist.error.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.trianatourist.error.excepciones.SingleEntityNotFoundException;
+import com.salesianostriana.trianatourist.model.Poi;
 import com.salesianostriana.trianatourist.model.Route;
 import com.salesianostriana.trianatourist.repository.RouteRepository;
 import com.salesianostriana.trianatourist.service.base.BaseService;
@@ -57,5 +58,11 @@ public class RouteService extends BaseService<Route, Long, RouteRepository> {
     @Override
     public List<Route> saveAll(List<Route> list) {
         return super.saveAll(list);
+    }
+
+    public void addToRoutePois(Route r, Poi poi, PoiService ps){
+        r.addSteps(poi);
+        repository.save(r);
+        ps.save(poi);
     }
 }
