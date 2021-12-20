@@ -8,6 +8,7 @@ import com.salesianostriana.trianatourist.dto.route.RouteDtoConverter;
 import com.salesianostriana.trianatourist.model.Route;
 import com.salesianostriana.trianatourist.service.RouteService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -46,7 +47,8 @@ public class RouteController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(Route r){
+    public ResponseEntity<?> delete(Route r){
         service.delete(r);
+        return ResponseEntity.noContent().build();
     }
 }
