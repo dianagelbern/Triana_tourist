@@ -52,6 +52,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Monumentos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8080/category/",
 							"host": [
@@ -71,15 +80,24 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Monumentos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/category/1/",
+							"raw": "localhost:8080/category/4/",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"category",
-								"1",
+								"4",
 								""
 							]
 						}
@@ -157,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"San Pedro Salesianos\",\r\n    \"location\": \"37.3,6.0271693\",\r\n    \"descripcion\": \"El Colegio Salesiano San Pedro, ubicado en el barrio de Triana de la ciudad de Sevilla, calle Condes de Bustillo nº17, e inscrito en el registro de la Consejeria de Educación y Ciencia de Sevilla, es un centro escolar privado concertado que comprende los niveles de Educación Infantil, Educación Primaria, Educación Secundaria Obligatoria, Bachillerato y Ciclos Formativos\",\r\n    \"coverPhoto\": \"https://triana.salesianos.edu/colegio/wp-content/uploads/sites/2/2018/02/P1130640.jpg\",\r\n    \"photo2\": \"https://triana.salesianos.edu/wp-content/uploads/2018/02/P1130519.jpg\",\r\n    \"photo3\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/12/Mauria-Auxiliadora-salesianos-Triana.jpg\",\r\n    \"category\": 1,\r\n    \"date\": \"1935-10-20\"\r\n}",
+							"raw": "{\r\n    \"name\": \"San Pedro Salesianos\",\r\n    \"location\": \"37.3,6.0271693\",\r\n    \"descripcion\": \"El Colegio Salesiano San Pedro, ubicado en el barrio de Triana de la ciudad de Sevilla, calle Condes de Bustillo nº17, e inscrito en el registro de la Consejeria de Educación y Ciencia de Sevilla, es un centro escolar privado concertado que comprende los niveles de Educación Infantil, Educación Primaria, Educación Secundaria Obligatoria, Bachillerato y Ciclos Formativos\",\r\n    \"coverPhoto\": \"https://triana.salesianos.edu/colegio/wp-content/uploads/sites/2/2018/02/P1130640.jpg\",\r\n    \"photo2\": \"https://triana.salesianos.edu/wp-content/uploads/2018/02/P1130519.jpg\",\r\n    \"photo3\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/12/Mauria-Auxiliadora-salesianos-Triana.jpg\",\r\n    \"category\": 2,\r\n    \"date\": \"1935-10-20\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -275,6 +293,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Historias urbanas\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8080/route/",
 							"host": [

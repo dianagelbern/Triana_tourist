@@ -1,5 +1,6 @@
 package com.salesianostriana.trianatourist.service;
 
+import com.salesianostriana.trianatourist.dto.category.CategoryDtoConverter;
 import com.salesianostriana.trianatourist.dto.poi.CreatePoiDto;
 import com.salesianostriana.trianatourist.dto.poi.GetPoiDto;
 import com.salesianostriana.trianatourist.dto.poi.PoiDtoConverter;
@@ -14,6 +15,8 @@ import com.salesianostriana.trianatourist.service.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,25 +52,32 @@ public class PoiService extends BaseService<Poi, Long, PoiRepository> {
         return repository.save(p);
     }
 
-/*
-    public Poi edit(CreatePoiDto create, PoiDtoConverter converter, CategoryService category, Long id) {
+    public Poi edit(CreatePoiDto create, PoiDtoConverter converter, Long id, CategoryService category) {
 
-            Optional<Poi> p = findById(id);
+            Optional<Poi> po = findById(id);
 
-            if (p.isEmpty()){
+            if (po.isEmpty()){
                 throw new SingleEntityNotFoundException(id.toString(), Poi.class);
             } else{
-                Poi poi = converter.createPoiDtoToPoi(create);
+                Poi poi = converter.editPoiDto(create, id);
+                Optional<Category> c = category.findById(create.getCategory());
+                poi.setCategory(c.get());
                 save(poi);
-                GetPoiDto getDto = converter.poiToGetPoiDtoConverter(poi);
-                return repository.save(getDto);
+                return repository.save(poi);
             }
 
     }
-*/
 
-    @Override
-    public void delete(Poi p) {
+
+
+    public void delete(Poi p, RouteService rs) {
+        List<Route> lista = new ArrayList<>(p.getRoutes());
+        for (Iterator<Route> i = lista.iterator(); i.hasNext();){
+            Route r = i.next();
+            r.removeSteps(p);
+            rs.save(r);
+            save(p);
+        }
         super.delete(p);
     }
 
@@ -76,11 +86,6 @@ public class PoiService extends BaseService<Poi, Long, PoiRepository> {
         return super.saveAll(list);
     }
 
-    public void agregarPoi(Poi p, Route r, RouteService rs) {
-        p.addRoute(r);
-        save(p);
-        rs.save(r);
-    }
 
 
 }

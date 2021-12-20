@@ -35,4 +35,18 @@ public class PoiDtoConverter {
                 .photo3(p.getPhoto3())
                 .date(p.getDate()).build();
     }
+
+    public Poi editPoiDto(CreatePoiDto p, Long id){
+
+        Poi poiEdit = Poi.builder().id(id)
+                .name(p.getName())
+                .descripcion(p.getDescripcion())
+                .location(p.getLocation())
+                .coverPhoto(p.getCoverPhoto())
+                .photo2(p.getPhoto2())
+                .photo3(p.getPhoto3())
+                .date(p.getDate()).build();
+        return poiEdit;
+
+    }
 }

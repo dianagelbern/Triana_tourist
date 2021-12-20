@@ -8,7 +8,9 @@ import com.salesianostriana.trianatourist.model.Category;
 import com.salesianostriana.trianatourist.model.Poi;
 import com.salesianostriana.trianatourist.service.CategoryService;
 import com.salesianostriana.trianatourist.service.PoiService;
+import com.salesianostriana.trianatourist.service.RouteService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 public class PoiController {
 
     private final PoiService service;
+    private final RouteService routeService;
     private final PoiDtoConverter converter;
     private final CategoryService category;
 
@@ -41,18 +44,19 @@ public class PoiController {
         Poi p = service.save(dto, converter, category);
         return  converter.poiToGetPoiDtoConverter(p);
     }
-/*
+
     @PutMapping("/{id}")
     public GetPoiDto edit(@Valid @RequestBody CreatePoiDto dto, @PathVariable Long id, PoiDtoConverter converter){
-       // Poi p = converter.createPoiDtoToPoi(dto);
-
-        Poi p = service.edit(dto, converter, category, id);
+        Poi p = service.edit(dto, converter, id, category);
         GetPoiDto poiDto = converter.poiToGetPoiDtoConverter(p);
         return poiDto;
     }
-*/
+
     @DeleteMapping("/{id}")
-    public void delete(Poi e){
-        service.delete(e);
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        Optional<Poi> p = service.findById(id);
+
+        service.delete(p.get(), routeService);
+        return ResponseEntity.noContent().build();
     }
 }
