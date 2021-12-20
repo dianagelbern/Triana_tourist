@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "ee390f73-4567-40ba-99f4-13fb79a8b0c5",
+		"name": "Triana Tourist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Traer todas las categorías",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/category/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer una categoría por su id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/category/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar una nueva categoría",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/category/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar una categoriá",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/category/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categoría",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/category/4/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POI",
+			"item": [
+				{
+					"name": "Traer todos los puntos de interés",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/poi/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"poi",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer un punto de interés",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/poi/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"poi",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar un punto de interés",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"San Pedro Salesianos\",\r\n    \"location\": \"37.3,6.0271693\",\r\n    \"descripcion\": \"El Colegio Salesiano San Pedro, ubicado en el barrio de Triana de la ciudad de Sevilla, calle Condes de Bustillo nº17, e inscrito en el registro de la Consejeria de Educación y Ciencia de Sevilla, es un centro escolar privado concertado que comprende los niveles de Educación Infantil, Educación Primaria, Educación Secundaria Obligatoria, Bachillerato y Ciclos Formativos\",\r\n    \"coverPhoto\": \"https://triana.salesianos.edu/colegio/wp-content/uploads/sites/2/2018/02/P1130640.jpg\",\r\n    \"photo2\": \"https://triana.salesianos.edu/wp-content/uploads/2018/02/P1130519.jpg\",\r\n    \"photo3\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/12/Mauria-Auxiliadora-salesianos-Triana.jpg\",\r\n    \"category\": 1,\r\n    \"date\": \"1935-10-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/poi/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"poi",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar un punto de interés",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"San Pedro Salesianos\",\r\n    \"location\": \"37.3,6.0271693\",\r\n    \"descripcion\": \"El Colegio Salesiano San Pedro, ubicado en el barrio de Triana de la ciudad de Sevilla, calle Condes de Bustillo nº17, e inscrito en el registro de la Consejeria de Educación y Ciencia de Sevilla, es un centro escolar privado concertado que comprende los niveles de Educación Infantil, Educación Primaria, Educación Secundaria Obligatoria, Bachillerato y Ciclos Formativos\",\r\n    \"coverPhoto\": \"https://triana.salesianos.edu/colegio/wp-content/uploads/sites/2/2018/02/P1130640.jpg\",\r\n    \"photo2\": \"https://triana.salesianos.edu/wp-content/uploads/2018/02/P1130519.jpg\",\r\n    \"photo3\": \"https://www.visitarsevilla.com/wp-content/uploads/2020/12/Mauria-Auxiliadora-salesianos-Triana.jpg\",\r\n    \"category\": 1,\r\n    \"date\": \"1935-10-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/poi/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"poi",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un punto de interés",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/poi/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"poi",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Route",
+			"item": [
+				{
+					"name": "Traer todas las rutas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/route/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer una ruta por su id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/route/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar una ruta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/route/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar una ruta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/route/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar una ruta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/route/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Añadir Punto de interés a una ruta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/route/1/steps/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								"steps",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Punto de interes de ruta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/route/1/steps/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"route",
+								"1",
+								"steps",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
