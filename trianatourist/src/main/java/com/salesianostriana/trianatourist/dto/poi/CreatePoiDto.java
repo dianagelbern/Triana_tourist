@@ -6,6 +6,7 @@ import com.salesianostriana.trianatourist.validacion.anotaciones.LatLonAdecuada;
 import com.salesianostriana.trianatourist.validacion.anotaciones.UniquePhoto;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
+import org.hibernate.validator.constraints.UniqueElements;
 
 
 import javax.validation.constraints.NotEmpty;
@@ -36,8 +37,6 @@ public class CreatePoiDto {
 
 
     private Long category;
-
-    private List<Route> routes;
 
     private LocalDate date;
 }

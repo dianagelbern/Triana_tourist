@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class RouteDtoConverter {
     public GetRouteDto routeToGetRouteDtoConverter(Route r, PoiDtoConverter converter){
         return GetRouteDto.builder()
+                .id(r.getId())
                 .name(r.getName())
                 .steps(r.getSteps().stream().map(converter::poiToGetPoiDtoConverter).collect(Collectors.toList())).build();
     }

@@ -32,7 +32,6 @@ public class Route implements Serializable {
 
     @Builder.Default
     @ManyToMany
-    @UniqueElements(message = "{route.steps.unico}") //Lo añado aquí ya que en el dto no tengo este atributo
     private List<Poi> steps = new ArrayList();
 
     public void addSteps(Poi p){

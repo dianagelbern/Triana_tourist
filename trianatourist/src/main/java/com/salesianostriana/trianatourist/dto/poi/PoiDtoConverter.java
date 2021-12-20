@@ -14,6 +14,7 @@ public class PoiDtoConverter {
 
     public GetPoiDto poiToGetPoiDtoConverter(Poi p){
         return GetPoiDto.builder()
+                .id(p.getId())
                 .name(p.getName())
                 .descripcion(p.getDescripcion())
                 .location(p.getLocation())
@@ -23,19 +24,6 @@ public class PoiDtoConverter {
                 .categoryName(p.getCategory().getName())
                 .date(p.getDate()).build();
     }
-/*
-    public Poi createPoiDtoToPoi(CreatePoiDto p, Category c){
-        return Poi.builder()
-                .name(p.getName())
-                .descripcion(p.getDescripcion())
-                .location(p.getLocation())
-                .coverPhoto(p.getCoverPhoto())
-                .photo2(p.getPhoto2())
-                .photo3(p.getPhoto3())
-                .routes(p.getRoutes())
-                .date(p.getDate()).build();
-    }
-*/
 
     public Poi createPoiDtoToPoi(CreatePoiDto p) {
         return Poi.builder()
@@ -45,7 +33,6 @@ public class PoiDtoConverter {
                 .coverPhoto(p.getCoverPhoto())
                 .photo2(p.getPhoto2())
                 .photo3(p.getPhoto3())
-               // .routes(p.getRoutes())
                 .date(p.getDate()).build();
     }
 }

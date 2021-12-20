@@ -3,12 +3,14 @@ package com.salesianostriana.trianatourist.service;
 import com.salesianostriana.trianatourist.dto.route.CreateRouteDto;
 import com.salesianostriana.trianatourist.dto.route.GetRouteDto;
 import com.salesianostriana.trianatourist.dto.route.RouteDtoConverter;
+import com.salesianostriana.trianatourist.error.excepciones.ElementosRepeditosException;
 import com.salesianostriana.trianatourist.error.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.trianatourist.error.excepciones.SingleEntityNotFoundException;
 import com.salesianostriana.trianatourist.model.Poi;
 import com.salesianostriana.trianatourist.model.Route;
 import com.salesianostriana.trianatourist.repository.RouteRepository;
 import com.salesianostriana.trianatourist.service.base.BaseService;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,7 +63,18 @@ public class RouteService extends BaseService<Route, Long, RouteRepository> {
     }
 
     public void addToRoutePois(Route r, Poi poi, PoiService ps){
-        r.addSteps(poi);
+        if(r.getSteps().contains(poi)){
+            throw new ElementosRepeditosException(poi.getClass());
+        }else{
+            r.addSteps(poi);
+            repository.save(r);
+            ps.save(poi);
+        }
+
+    }
+
+    public void deleteToRoutePoi(Route r, Poi poi, PoiService ps){
+        r.removeSteps(poi);
         repository.save(r);
         ps.save(poi);
     }

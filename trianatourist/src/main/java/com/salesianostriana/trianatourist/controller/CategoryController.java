@@ -5,6 +5,7 @@ import com.salesianostriana.trianatourist.dto.category.CreateCategoryDto;
 import com.salesianostriana.trianatourist.model.Category;
 import com.salesianostriana.trianatourist.service.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -40,7 +41,8 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(Category c){
+    public ResponseEntity<?> delete(Category c){
         service.delete(c);
+        return ResponseEntity.noContent().build();
     }
 }

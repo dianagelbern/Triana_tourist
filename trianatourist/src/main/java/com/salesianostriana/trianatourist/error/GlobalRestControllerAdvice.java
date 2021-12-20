@@ -1,5 +1,6 @@
 package com.salesianostriana.trianatourist.error;
 
+import com.salesianostriana.trianatourist.error.excepciones.ElementosRepeditosException;
 import com.salesianostriana.trianatourist.error.excepciones.EntityNotFoundException;
 import com.salesianostriana.trianatourist.error.model.ApiError;
 import com.salesianostriana.trianatourist.error.model.ApiSubError;
@@ -63,6 +64,11 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
         return buildApiError(exception, HttpStatus.NOT_FOUND, request, new ArrayList<>());
     }
 
+    @ExceptionHandler({ElementosRepeditosException.class})
+    public ResponseEntity<?> handleRepeatedElementException(ElementosRepeditosException exception, WebRequest request){
+        return buildApiError(exception, HttpStatus.BAD_REQUEST, request, new ArrayList<>());
+    }
+
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return buildApiError(ex, request);
@@ -101,4 +107,5 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
                 .body(new ApiError(estado, mensaje, ((ServletWebRequest) request).getRequest().getRequestURI(), subErrores));
 
     }
+
 }

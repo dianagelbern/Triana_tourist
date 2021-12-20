@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 public class GetPoiDto {
+    private Long id;
 
     private String name, location, descripcion, coverPhoto, photo2, photo3;
 

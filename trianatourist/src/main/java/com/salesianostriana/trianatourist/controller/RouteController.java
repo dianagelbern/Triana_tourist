@@ -58,8 +58,8 @@ public class RouteController {
 
     @PostMapping("/{id}/steps/{id2}")
     public ResponseEntity<GetRouteDto> addToRoutePois(@PathVariable Long id, @PathVariable Long id2){
-        Optional<Poi> p = poiService.findById(id);
-        Optional<Route> r = service.findById(id2);
+        Optional<Poi> p = poiService.findById(id2);
+        Optional<Route> r = service.findById(id);
         if(p.isPresent() && r.isPresent()){
             service.addToRoutePois(r.get(), p.get(), poiService);
             GetRouteDto dto = converter.routeToGetRouteDtoConverter(r.get(), poiConverter);
@@ -68,4 +68,17 @@ public class RouteController {
 
         return ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("/{id}/steps/{id2}")
+    public ResponseEntity<GetRouteDto> deleteToRoutePois(@PathVariable Long id, @PathVariable Long id2){
+        Optional<Poi> p = poiService.findById(id2);
+        Optional<Route> r = service.findById(id);
+        if(p.isPresent() && r.isPresent()){
+            service.deleteToRoutePoi(r.get(), p.get(), poiService);
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
 }
